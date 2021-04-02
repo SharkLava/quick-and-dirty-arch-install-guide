@@ -1,4 +1,5 @@
 # DISCLAIMER
+This guide is **ONLY** for EFI systems. Although a large part of the process is the same.  
 **I am not responsible for any damages, loss of data, system corruption, or any
 other mishap you may somehow cause by following this guide.**
 
@@ -38,4 +39,48 @@ ping google.com
 ## Update the system clock
 ```
 timedatectl set-ntp true
+```
+## Partition the disks
+##### Note: If you are installing Arch on an NVME drive you might see that your partitions are named like nvme0nX instead of sdaX.
+Use cfdisk to make your partitions. You will need an EFI partition at the start of your disk(sda1) of at least 500Mb Set its type as ESP.  
+Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changed to the drive(Don't Fprget to mark it with the boot flag!). Now select quit.
+## Format the boot partition
+```
+mkfs.fat -F32 /dev/sda1
+```
+## Format the root partition
+```
+mkfs.ext4 /dev/sda2
+```
+## Mount the file systems
+``` 
+mount /dev/sda2 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+```
+## Install the base packages
+```
+pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
+```
+## Fstab
+```
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+##### Note: Check the resulting file in /mnt/etc/fstab and make sure it covers boot and root.
+## Chroot
+```
+arch-chroot /mnt
+```
+## Time zone
+###### Note: Change the location as per your needs.
+```
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+hwclock --systohc
+```
+
+## Locale
+Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen,` then
+```
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
