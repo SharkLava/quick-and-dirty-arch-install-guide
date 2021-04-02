@@ -43,7 +43,7 @@ timedatectl set-ntp true
 ## Partition the disks
 ##### Note: If you are installing Arch on an NVME drive you might see that your partitions are named like nvme0nX instead of sdaX.
 Use cfdisk to make your partitions. You will need an EFI partition at the start of your disk(sda1) of at least 500Mb Set its type as ESP.  
-Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changed to the drive(Don't Fprget to mark it with the boot flag!). Now select quit.
+Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changed to the drive(Don't Forget to mark it with the boot flag!). Now select quit.
 ## Format the boot partition
 ```
 mkfs.fat -F32 /dev/sda1
@@ -66,7 +66,7 @@ pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
 ```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
-##### Note: Check the resulting file in /mnt/etc/fstab and make sure it covers boot and root.
+##### Note: Check the resulting file in `/mnt/etc/fstab` and make sure it covers boot and root.
 ## Chroot
 ```
 arch-chroot /mnt
@@ -84,3 +84,56 @@ Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen,` then
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
+
+## Hostname
+###### Note: Change the hostname(Zensho in my case) to suit your needs
+```
+echo Zensho > /etc/hostname
+```
+In `/etc/hosts`, add:
+```
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	Zensho.localdomain Zensho
+```
+## Root password
+```
+passwd
+```
+## Configure mkinitcpio and create the initramfs image
+In `/etc/mkinitcpio.conf`, the hooks must be: 
+```
+HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt filesystems fsck)
+```
+Then run
+```
+mkinitcpio -P
+```
+## Boot loader and Intel microcode
+Install and configure GRUB:
+```
+pacman -S grub efibootmgr
+```
+Add Microcode:  
+``` pacman -S intel-ucode ```(only for Intel devices)  
+``` pacman -S amd-ucode ```(only for AMD devices)  
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+## Add user
+##### Note: Replace the user name(In my case kami) with whatever you want
+```
+useradd -m kami
+passwd kami
+```
+Add kami to sudoers:
+```
+pacman -S vim
+visudo
+```
+  1. Go to the line starting with "root".
+  2. Press `Y` twice to yank it.
+  3. Go to the next line and press `P` to paste it.
+  4. Use `X` to delete "root" from that line.
+  5. Press `I` to enter insert mode, and replace the deleted "root" by "kami".
+  6. Press `Esc`, then type ":wq", then press `Enter`.
