@@ -137,3 +137,36 @@ visudo
   4. Use `X` to delete "root" from that line.
   5. Press `I` to enter insert mode, and replace the deleted "root" by "kami".
   6. Press `Esc`, then type ":wq", then press `Enter`.
+## Reboot
+```
+exit
+umount -R /mnt
+cryptsetup close cryptroot
+shutdown now
+```
+Remove the Arch installer USB and power the computer back on.
+
+## Internet
+Find the wireless interface name (e.g., wlp4s0):
+```
+ip link
+```
+Enable the wireless interface:
+```
+sudo ip link set wlp4s0 up
+```
+NetworkManager will be used to manage connections:
+```
+sudo pacman -S networkmanager
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+sudo systemctl mask systemd-resolved.service
+```
+Remove the `/etc/resolv.conf` file (if it exists), then:
+```
+sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+```
+In `/etc/NetworkManager/NetworkManager.conf`, under the [main] section (create it if it does not exist) add:
+```
+dns=none
+```
