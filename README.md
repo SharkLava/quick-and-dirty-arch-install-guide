@@ -27,3 +27,15 @@ On my test rig(ThinkPad t460) it can be found under:
 ## Create the Arch installer USB
 Download the ISO file and flash it on to a USB stick or any other bootable medium(Using something like [Balena Etcher](https://github.com/balena-io/etcher)
 For more information you can refer to the ArchWiki [here](https://wiki.archlinux.org/index.php/USB_flash_installation_media)
+# Main installation
+## Boot from the Arch installer USB
+Interrupt the boot sequence(usually you just need to press the `Esc`, `F10`, or `Enter` key and navigate to the appropriate option) and boot into the USB we just flashed.
+## Connect to the internet
+An internet connection is required for installation. Plug in an ethernet cable(or connect to your WiFi using the `iwd` refer to the [ArchWiki](https://wiki.archlinux.org/index.php/Iwd)) and make sure you are connected to the internet:  
+```
+ping google.com
+```
+## Update the system clock
+```
+timedatectl set-ntp true
+```
