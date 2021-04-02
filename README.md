@@ -170,3 +170,25 @@ In `/etc/NetworkManager/NetworkManager.conf`, under the [main] section (create i
 ```
 dns=none
 ```
+## yay
+Install yay, an AUR helper:
+~~~
+cd ~
+sudo pacman -S --asdeps go
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+~~~
+## Fonts
+To cover most characters:
+```
+sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-extra ttf-dejavu ttf-liberation
+```
+##### Note: noto-fonts-emoji is not part of the installation.
+
+## Sound
+```
+sudo pacman -S pulseaudio pulseaudio-alsa
+```
