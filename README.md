@@ -67,13 +67,15 @@ pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
 ```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
-##### Note: Check the resulting file in `/mnt/etc/fstab` and make sure it covers boot and root.
+<h5> Note: Check the resulting file in `/mnt/etc/fstab` and make sure it covers boot and root.</h5><br>
+
 ## Chroot
 ```
 arch-chroot /mnt
 ```
 ## Time zone
-###### Note: Change the location as per your needs.
+<h5> Note: Change the location as per your needs.</h5><br>
+
 ```
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
@@ -87,7 +89,8 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
 ## Hostname
-###### Note: Change the hostname(Zensho in my case) to suit your needs
+<h5> Note: Change the hostname(Zensho in my case) to suit your needs</h5><br>
+
 ```
 echo Zensho > /etc/hostname
 ```
@@ -122,7 +125,8 @@ Add Microcode:
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ## Add user
-##### Note: Replace the user name(In my case kami) with whatever you want
+<h5> Note: Replace the user name(In my case kami) with whatever you want</h5><br>
+
 ```
 useradd -m kami
 passwd kami
@@ -187,7 +191,8 @@ To cover most characters:
 ```
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-extra ttf-dejavu ttf-liberation
 ```
-##### Note: noto-fonts-emoji is not part of the installation.
+<h5> Note: noto-fonts-emoji is not part of the installation.</h5><br>
+
 
 ## Sound
 ```
