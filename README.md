@@ -26,10 +26,10 @@ On my test rig(ThinkPad t460) it can be found under:
 - Security > Virtualization > Intel (R) Virtualization Technology > Enabled  
   
 ## Create the Arch installer USB
-Download the ISO file and flash it on to a USB stick or any other bootable medium(Using something like [Balena Etcher](https://github.com/balena-io/etcher)
+Download the ISO file and flash it on to a USB stick or any other bootable medium(Using something like [Balena Etcher](https://github.com/balena-io/etcher))
 For more information you can refer to the ArchWiki [here](https://wiki.archlinux.org/index.php/USB_flash_installation_media)
 # Main installation
-## Boot from the Arch installer USB
+## Boot from the Arch install USB
 Interrupt the boot sequence(usually you just need to press the `Esc`, `F10`, or `Enter` key and navigate to the appropriate option) and boot into the USB we just flashed.
 ## Connect to the internet
 An internet connection is required for installation. Plug in an ethernet cable(or connect to your WiFi using the `iwd` refer to the [ArchWiki](https://wiki.archlinux.org/index.php/Iwd)) and make sure you are connected to the internet:  
@@ -42,8 +42,8 @@ timedatectl set-ntp true
 ```
 ## Partition the disks
 ##### Note: If you are installing Arch on an NVME drive you might see that your partitions are named like nvme0nX instead of sdaX.
-Use cfdisk to make your partitions. You will need an EFI partition at the start of your disk(sda1) of at least 500Mb Set its type as ESP.  
-Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changed to the drive(Don't Forget to mark it with the boot flag!). Now select quit.
+Use cfdisk to make your partitions. You will need an EFI partition at the start of your disk(sda1) of at least 500Mb. Set its type as ESP.  
+Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changes to the drive(Don't forget to mark it with the boot flag!). Now select quit.
 ## Format the boot partition
 ```
 mkfs.fat -F32 /dev/sda1
