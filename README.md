@@ -201,3 +201,77 @@ sudo pacman -S xf86-input-libinput
 ```
 sudo pacman -S man-db man-pages
 ```
+## X
+### Basic X packages:
+```
+sudo pacman -S xorg-server xorg-xinit xorg-xrdb
+```
+## Desktop Enviroment(KDE Plasma)
+```
+sudo pacman -S plasma-meta
+```
+##### Note: Feel free to install any other DE(Like GNOME, i3, Xfce ,etc)
+# Post-installation
+
+## Firefox
+```
+sudo pacman -S firefox
+```
+## TLP
+```
+sudo pacman -S tlp
+sudo pacman -S --asdeps acpi_call ethtool smartmontools x86_energy_perf_policy
+sudo systemctl enable tlp.service
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+```
+## Okular
+```
+sudo pacman -S okular
+```
+If prompted, choose phonon-qt5-vlc.
+## htop
+```
+sudo pacman -S htop
+```
+## LibreOffice
+```
+sudo pacman -S libreoffice-still
+```
+## SSH
+```
+sudo pacman -S openssh sshpass
+```
+## VLC
+```
+sudo pacman -S vlc
+```
+## Pacman User Guide for Dummies
+Installing packages:
+```
+sudo pacman -S [packages]
+```
+Updating packages:
+```
+sudo pacman -Syu
+```
+Removing and purging packages:
+```
+sudo pacman -Rns [packages]
+```
+Displaying a list of unused packages (orphans):
+```
+pacman -Qtdq
+```
+Removing unused packages (orphans):
+```
+sudo pacman -Rns $(pacman -Qtdq)
+```
+## yay
+Updating packages:
+```
+yay -Syu --devel
+```
+## Misc.
+Cannot write on external hard drive: https://askubuntu.com/a/172671
+
