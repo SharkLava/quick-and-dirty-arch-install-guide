@@ -274,4 +274,15 @@ yay -Syu --devel
 ```
 ## Misc.
 Cannot write on external hard drive: https://askubuntu.com/a/172671
+# Post Notes
+## Disclaimers(Yes again)
+Since this guide was written with the intent to act as a general guide I will not be covering many things. However all of these should be very easy to do on your own and if you're ever lost refer to ArchWiki it has the answer to everything you're looking for.This includes:
+- Fingerprint scanners
+- Facial Identification
+- Graphics Drivers
+- Workarounds and fixes for niche problems that you may run into for your specific system. </br>
+## Credits
+This guide was based on @PhilippeOlivier guide for installing Arch on a ThinkPad, If you use a ThinkPad I suggest you use his guide instead considering it is tailormade for it. Also thanks to @CodingCellist whose disclaimer I shamelessly stole.
 
+P.S.  
+If for some unknown reason my English teacher is reading this I just want to say that I'm sorry.
