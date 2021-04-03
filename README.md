@@ -41,7 +41,8 @@ ping google.com
 timedatectl set-ntp true
 ```
 ## Partition the disks
-##### Note: If you are installing Arch on an NVME drive you might see that your partitions are named like nvme0nX instead of sdaX.
+<h5> Note: If you are installing Arch on an NVME drive you might see that your partitions are named like nvme0nX instead of sdaX. </h5><br>
+
 Use cfdisk to make your partitions. You will need an EFI partition at the start of your disk(sda1) of at least 500Mb. Set its type as ESP.  
 Allocate the rest of the drive to your root partition(I know, I know seperate home drive but it isn't *required* to have a functional machine). Set it to primary and ext4 and select write to write changes to the drive(Don't forget to mark it with the boot flag!). Now select quit.
 ## Format the boot partition
@@ -276,7 +277,7 @@ yay -Syu --devel
 Cannot write on external hard drive: https://askubuntu.com/a/172671
 # Post Notes
 ## Disclaimers(Yes again)
-Since this guide was written with the intent to act as a general guide I will not be covering many things. However all of these should be very easy to do on your own and if you're ever lost refer to ArchWiki it has the answer to everything you're looking for.This includes:
+Since this guide was written with the intent to act as a general guide I will not be covering many things. However all of these should be very easy to do on your own and if you're ever lost refer to ArchWiki, it has the answer to everything you're looking for.This includes:
 - Fingerprint scanners
 - Facial Identification
 - Graphics Drivers
