@@ -197,5 +197,7 @@ sudo pacman -S pulseaudio pulseaudio-alsa
 sudo pacman -S xf86-input-libinput
 ```
 ###### Note: Put the backup file /etc/X11/xorg.conf.d/10-touchpad.conf
-** Man pages
-> sudo pacman -S man-db man-pages
+## Man pages
+```
+sudo pacman -S man-db man-pages
+```
