@@ -17,6 +17,9 @@ have not updated it in a while, you ~~might~~ will want to check with/refer to
 the Arch Wiki either completely or at least in parallel to this guide as
 settings/commands/recommendations might have changed.**
 
+# Why should I even install Arch manually when archinstall is a thing?
+I'll admit that the idea of a competent install script for Arch sounds very tempting, archinstall is not that(yet). Aside from very few options to work with, *very* poor default partitioning options and just generally frequent crashes when you even try to do something that is remotely hacky makes it a very bad option as of now. Hopefully it improves but for now manual is the way. 
+
 # Preinstallation
 
 ## BIOS update
