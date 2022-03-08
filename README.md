@@ -27,7 +27,7 @@ Make sure that the latest BIOS update is installed. You can usually find this on
 
 Make sure you have Secure Boot disabled and Virtualisation(If you plan on running VMs) enabled.  
 They should be pretty easy to find. You can always Google where it is on your specific machine but it's usually in a somewhat relevant category like Security.  
-On my test rig(ThinkPad t460) it can be found under:
+On my test rig(ThinkPad T460) it can be found under:
 
 - Security > Secure Boot > Secure Boot > Disabled
 - Security > Virtualization > Intel (R) Virtualization Technology > Enabled
