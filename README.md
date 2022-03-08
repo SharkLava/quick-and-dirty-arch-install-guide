@@ -202,7 +202,6 @@ visudo
 ```
 exit
 umount -R /mnt
-cryptsetup close cryptroot
 shutdown now
 ```
 
@@ -305,13 +304,13 @@ sudo pacman -S plasma-meta
 
 # Post-installation
 
-## Firefox
+## Firefox(or LibreWolf)
 
 ```
 sudo pacman -S firefox
 ```
 
-## TLP
+## TLP(Desktop users can skip this)
 
 ```
 sudo pacman -S tlp
@@ -321,7 +320,7 @@ sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
 ```
 
-## Okular
+## Okular(or Zathura)
 
 ```
 sudo pacman -S okular
@@ -347,7 +346,7 @@ sudo pacman -S libreoffice-still
 sudo pacman -S openssh sshpass
 ```
 
-## VLC
+## VLC(or mpv)
 
 ```
 sudo pacman -S vlc
@@ -406,6 +405,7 @@ Since this guide was written with the intent to act as a general guide I will no
 - Fingerprint scanners
 - Facial Identification
 - Graphics Drivers
+- The answer to life, the universe and everything
 - Workarounds and fixes for niche problems that you may run into for your specific system. </br>
 
 ## Credits
